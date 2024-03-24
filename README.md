@@ -10,6 +10,8 @@ Development Goal using recent Large Language Models, such as ChatGPT and Llama2.
 - [Setup](#setup)
 - [How to use](#how-to-use)
   - [Adding an LLM classifier](#adding-an-llm-classifier)
+  - [Adding configurations](#adding-configurations)
+  - [Caching requests](#caching-requests)
   - [Running an LLM classifier](#running-an-llm-classifier)
 
 ## Motivation
@@ -94,6 +96,101 @@ class Classifier(BaseClassifier):
         return [1, 7, 12]
 ```
 
+### Adding configurations
+
+Classifiers can define different configurations that they support. This makes it
+possible to use one classifier for many similar evaluations. For example,
+running the same prompts but with different models (GPT 4 vs GPT 3.5), different
+temperature, etc...
+
+To add a configuration to a classifier, overwrite the `CONFIGURATIONS` attribute
+in the classifier:
+
+```python
+# classifiers/myclassifier/myclassifier.py
+
+from classifiers import BaseClassifier, ConfigSet, Config, Parameters
+
+class Classifier(BaseClassifier):
+    """Description of classifier goes here."""
+
+    # Define your configurations below
+    CONFIGURATIONS=ConfigSet(
+      # Define the set of allowed parameters
+      Parameters(model="ChatGPT model"),
+
+      # Note: Each config must define all parameters!
+      Config(model="gpt-4-0125-preview"),
+      Config(model="gpt-3.5-turbo-0125")
+    )
+
+    model: str
+
+    def __post_init__(self, configuration: Config) -> None:
+      # You can access the configuration here
+      # Note: You can also access the configuration later via self.configuration
+      self.model = configuration.model
+
+    def classify(self, text: str) -> list[int]:
+        # Access self.model or self.configuration here
+        print(self.model)
+        return [...]
+```
+
+### Caching requests
+
+You may want to cache API requests, so that future requests with the exact same
+parameters will skip the request and just rely on the cache.
+
+To do this, wrap the method that calls the API with the `with_cache` method.
+
+For example:
+
+```python
+# classifiers/myclassifier/myclassifier.py
+
+from openai import OpenAI
+from dotenv import load_dotenv
+from classifiers import BaseClassifier
+
+class Classifier(BaseClassifier):
+    """Description of classifier goes here."""
+
+    def __post_init__(self, configuration: Config) -> None:
+        # Set up OpenAI client
+        load_dotenv()
+        client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+        # This caches calls to the OpenAI chat completions endpoint
+        self.create_chat_completion = self.with_cache(client.chat.completions.create)
+
+    def classify(self, text: str) -> list[int]:
+        # These calls are now being cached
+        res = self.create_chat_completion(model="gpt-4-turbo-preview", messages=[...])
+
+        # Process response and return SDGs
+        return [...]
+```
+
+Note that caching is based on the name of the method that is being cached and
+the arguments that are passed to the method. Therefore, you should never access
+attributes within the method but rather pass them as method arguments:
+
+```python
+# Good
+def make_api_request(model: str, prompt: str) -> str:
+    return requests.get(model=model, prompt=prompt)
+
+# Bad - avoid this!
+# Because the cache key is based on the method name plus arguments, any call to
+# this method will always hit the cache and return an identical result
+def make_api_request() -> str:
+    return requests.get(model=self.model, prompt=self.prompt)
+```
+
+The cache is stored in the classifier directory under `.cache`. To clear the
+cache, simply remove that folder. Example: `classifiers/chatgpt_sdgs/.cache/`
+
 ### Running an LLM classifier
 
 To benchmark an LLM classifier, simply run the `evaluate.py` script (from within
@@ -102,6 +199,9 @@ the `poetry shell`):
 ```bash
 python scripts/evaluate.py myclassifier
 ```
+
+If several configs have been defined for the classifier, you will be prompted to
+select the config that you want to run.
 
 As the benchmark progresses, you will see the following output:
 
