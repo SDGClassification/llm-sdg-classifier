@@ -1,0 +1,44 @@
+# {{ classifier }}
+
+{{ docstring }}
+
+## Parameters
+
+{% if parameters | length == 0 -%}
+    No parameters used.
+{% endif %}
+
+{% for key, value in parameters.items() -%}
+    - `{{ key }}`: {{ value }}
+{% endfor %}
+
+## Evaluation
+
+The table below shows the accuracy (in %) for all configurations.
+
+{{ evaluation_table }}
+
+{% for config in configurations %}
+## Configuration {{ loop.index }} (`{{ config.get_identifier() }}`)
+
+**Parameters**:
+
+{%- if config | length == 0 %}
+ None
+{% endif %}
+
+{% for key, value in config.items() -%}
+    - `{{ key }}`: {{ value }}
+{% endfor %}
+
+{% if not runs[loop.index0] -%}
+    Not yet evaluated.
+{%- else -%}
+
+{{ runs[loop.index0].stats.format("github") }}
+
+**Evaluated on**: {{ runs[loop.index0].date }}
+
+{%- endif %}
+
+{% endfor %}
