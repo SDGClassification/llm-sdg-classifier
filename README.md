@@ -41,7 +41,7 @@ SDG classification initiatives.
 To view the performance of each classifier on the benchmark, click one of the
 following classifiers below:
 
-- [chatgpt_sdgs](classifiers/chatgpt_sdgs/README.md)
+- [chatgpt_sdgs](classifiers/chatgpt_sdgs/)
 
 ## Setup
 
