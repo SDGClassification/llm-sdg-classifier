@@ -36,14 +36,10 @@ SDG classification initiatives.
 
 ## Evaluations
 
-| Approach | Parameters | SDG 7 | SDG 10 |
-| -------- | ---------- | ----- | ------ |
+To view the performance of each classifier on the benchmark, click one of the
+following classifiers below:
 
-Different params:
-
-- temp
-- json
-- etc...
+- [chatgpt_sdgs](classifiers/chatgpt_sdgs/README.md)
 
 ## Setup
 
