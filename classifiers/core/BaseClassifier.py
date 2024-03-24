@@ -108,7 +108,7 @@ class BaseClassifier:
 
         Returns: Class of classifier"""
 
-        module_path = f"evaluations.{classifier}.{classifier}"
+        module_path = f"classifiers.{classifier}.{classifier}"
         try:
             module = importlib.import_module(module_path, __name__)
             return getattr(module, "Classifier")

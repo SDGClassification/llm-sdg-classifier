@@ -10,7 +10,7 @@ import shutil
 import argparse
 from datetime import datetime
 from babel.dates import format_date
-from evaluations import BaseClassifier, Run
+from classifiers import BaseClassifier, Run
 from lib.sdg_benchmark import SdgBenchmark
 from scripts.update_readme import update_readme
 
@@ -54,7 +54,7 @@ run.write_files(classifier.runs_directory)
 
 # Clean up old runs
 current_config_ids = [c.get_identifier() for c in configurations]
-for dir in os.scandir(Path("evaluations", classifier.name, "runs")):
+for dir in os.scandir(classifier.runs_directory):
     if dir.name not in current_config_ids:
         shutil.rmtree(dir)
 

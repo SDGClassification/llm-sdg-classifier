@@ -2,7 +2,7 @@ import os
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
-from evaluations import BaseClassifier, Config
+from classifiers import BaseClassifier, Config
 
 
 class Classifier(BaseClassifier):

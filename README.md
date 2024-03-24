@@ -59,26 +59,26 @@ environment variables in [.env](.env), such as the `OPENAI_API_KEY`. Please refe
 
 ## How to use
 
-The [evaluations](evaluations/) directory contains a number of different SDG
+The [classifiers](classifiers/) directory contains a number of different SDG
 classification models that all use LLM under the hood. Each model may be using a
 different LLM, different prompts and/or different parameters.
 
 ### Adding an LLM classifier
 
 To add your own classifier, create a new file `myclassifier.py` in a
-`myclassifier` folder under the [evaluations](evaluations/) directory.
+`myclassifier` folder under the [classifiers](classifiers/) directory.
 
 The path for the new classifier should be as follows:
-`evalutions/myclassifier/myclassifier.py`
+`classifiers/myclassifier/myclassifier.py`
 
 You are free to pick any name, combining characters and underscores.
 
 A basic classifier looks like this:
 
 ```python
-# evaluations/myclassifier/myclassifier.py
+# classifiers/myclassifier/myclassifier.py
 
-from evaluations import BaseClassifier
+from classifiers import BaseClassifier
 
 class Classifier(BaseClassifier):
     """Description of classifier goes here.
@@ -126,4 +126,4 @@ Benchmark completed
 
 After the evaluation is complete, you can review the new/updated README.md file
 that has been generated in the folder of the classifier. Example:
-[evaluations/chatgpt_sdgs/README.md](evaluations/chatgpt_sdgs/README.md)
+[classifiers/chatgpt_sdgs/README.md](classifiers/chatgpt_sdgs/README.md)

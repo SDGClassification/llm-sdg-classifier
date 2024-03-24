@@ -10,7 +10,7 @@ import inspect
 import pandas as pd
 from jinja2 import Template, StrictUndefined
 from tabulate import tabulate
-from evaluations import BaseClassifier, Run
+from classifiers import BaseClassifier, Run
 
 from typing import Union, Type
 
@@ -47,10 +47,10 @@ def update_readme(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> No
     evaluation_data = evaluation.to_dict("records")
 
     # Update README
-    with open(Path("evaluations", "README.md.jinja"), "r") as f:
+    with open(Path("classifiers", "core", "README.md.jinja"), "r") as f:
         template = Template(f.read(), undefined=StrictUndefined)
 
-    with open(Path("evaluations", classifier.name, "README.md"), "w") as f:
+    with open(classifier.directory.joinpath("README.md"), "w") as f:
         f.write(
             template.render(
                 classifier=classifier.name,
