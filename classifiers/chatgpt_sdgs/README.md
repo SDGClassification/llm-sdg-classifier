@@ -19,7 +19,7 @@ Response is in JSON format.
 The table below shows the accuracy (in %) for all configurations.
 
 |   Configuration |   All |   SDG 7 |   SDG 10 |
-|-----------------|-------|---------|----------|
+|----------------:|------:|--------:|---------:|
 |               1 | 91.3  |      90 |    93.44 |
 |               2 | 88.82 |      91 |    85.25 |
 

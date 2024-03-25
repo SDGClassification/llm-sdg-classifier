@@ -41,7 +41,7 @@ Topic IDs:
 The table below shows the accuracy (in %) for all configurations.
 
 |   Configuration |   All |   SDG 7 |   SDG 10 |
-|-----------------|-------|---------|----------|
+|----------------:|------:|--------:|---------:|
 |               1 | 77.64 |      93 |    52.46 |
 |               2 | 77.64 |      93 |    52.46 |
 

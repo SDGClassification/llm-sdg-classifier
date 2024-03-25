@@ -38,11 +38,22 @@ SDG classification initiatives.
 
 ## Evaluations
 
-To view the performance of each classifier on the benchmark, click one of the
-following classifiers below:
+The table below shows the accuracy of the LLM classifiers. If a classifier has
+several configurations, the table shows the results for the configuration that
+achieved the highest overall accuracy.
 
-- [chatgpt_sdgs](classifiers/chatgpt_sdgs/)
-- [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/)
+Clicking on one of the classifiers provides additional details, including
+metadata about the classifier, F1 score, precision, recall and results for any
+other configurations.
+
+<!-- evaluation table begin -->
+
+| Classifier                                            |   All |   SDG 7 |   SDG 10 |
+|:------------------------------------------------------|------:|--------:|---------:|
+| [chatgpt_sdgs](classifiers/chatgpt_sdgs/)             | 91.3  |      90 |    93.44 |
+| [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/) | 77.64 |      93 |    52.46 |
+
+<!-- evaluation table end -->
 
 ## Setup
 

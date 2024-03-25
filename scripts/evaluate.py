@@ -5,14 +5,12 @@ from pathlib import Path
 # See: https://stackoverflow.com/a/27876800/6451879
 sys.path.append(str(Path(__file__).absolute().parent.parent))
 
-import os
-import shutil
 import argparse
 from datetime import datetime
 from babel.dates import format_date
 from classifiers import BaseClassifier, Run
 from lib.sdg_benchmark import SdgBenchmark
-from scripts.update_readme import update_readme
+from scripts.update_files import update_files
 
 
 # Parse command-line arguments
@@ -52,11 +50,5 @@ run = Run(
 )
 run.write_files(classifier.runs_directory)
 
-# Clean up old runs
-current_config_ids = [c.get_identifier() for c in configurations]
-for dir in os.scandir(classifier.runs_directory):
-    if dir.name not in current_config_ids:
-        shutil.rmtree(dir)
-
-# Update README
-update_readme(classifier)
+# Update files
+update_files(classifier)
