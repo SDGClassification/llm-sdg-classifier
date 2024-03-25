@@ -21,7 +21,7 @@ class Run:
         Args:
             runs_directory: Directory where runs are stored."""
         dir_path = runs_directory.joinpath(self.config.get_identifier())
-        dir_path.mkdir(exist_ok=True)
+        dir_path.mkdir(exist_ok=True, parents=True)
 
         # Write meta
         with open(dir_path.joinpath("meta.json"), "w") as f:
