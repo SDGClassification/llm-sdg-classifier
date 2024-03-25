@@ -1,0 +1,31 @@
+topics:
+  - energy and electricity
+  - climate change, climate action, Paris agreement, GHG emissions
+  - human health and well-being
+  - gender equality
+  - poverty
+  - agriculture and diets
+  - jobs, work, and economy
+  - ecology, ecosystems and biodiversity
+  - circular economy, production and consumption
+  - formal and informal education
+  - water and sanitation
+  - Sustainable Development Goals and Agenda 2030
+  - public transportation and transportation infrastructure
+  - cities, towns, communities
+  - government, policy, and institutions
+  - tourism
+  - financial sector
+  - culture
+  - science and innovation
+  - social welfare
+  - inequality (except gender)
+
+energy_subtopics:
+  - "renewable energy: wind, solar, water, sustainable energy, ..."
+  - "affordable energy and energy costs: low-cost energy, energy price, energy poverty, ..."
+  - "energy access: rural, electrification, ..."
+  - "strong energy infrastructure: quality of electricity supply, reliability, electricity grid, ..."
+  - "clean energy: carbon-free electricity, low-carbon energy, ... "
+  - "energy efficiency (except vehicles): heat pumps, insulation, retrofitting, reduced energy consumption, ..."
+  - "energy transition: energy system transformation, ..."
