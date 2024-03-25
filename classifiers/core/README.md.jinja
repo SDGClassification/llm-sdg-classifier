@@ -35,7 +35,7 @@ The table below shows the accuracy (in %) for all configurations.
     Not yet evaluated.
 {%- else -%}
 
-{{ runs[loop.index0].stats.format("github") }}
+{{ runs[loop.index0].stats.format("pipe") }}
 
 **Evaluated on**: {{ runs[loop.index0].date }}
 
