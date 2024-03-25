@@ -2,7 +2,7 @@ import os
 import yaml
 from openai import OpenAI
 from dotenv import load_dotenv
-from classifiers import BaseClassifier, Config
+from classifiers import BaseClassifier, Parameters, ConfigSet, Config
 
 from openai.types.chat.chat_completion import ChatCompletion
 
@@ -38,10 +38,22 @@ class Classifier(BaseClassifier):
     ```
     """
 
+    CONFIGURATIONS = ConfigSet(
+        Parameters(model="ChatGPT model to use"),
+        Config(model="gpt-4-0125-preview"),
+        Config(model="gpt-3.5-turbo-0125"),
+    )
+
+    # ChatGPT model to use
+    # See: https://platform.openai.com/docs/models/overview
+    model: str
+
     topics: list[str]
     energy_subtopics: list[str]
 
     def __post_init__(self, configuration: Config) -> None:
+        self.model = configuration.model
+
         load_dotenv()
         client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
         self.create_chat_completion = self.with_cache(client.chat.completions.create)
@@ -79,7 +91,7 @@ class Classifier(BaseClassifier):
 
         # Send prompt to ChatGPT
         response = self.create_chat_completion(
-            model="gpt-4-0125-preview",
+            model=self.model,
             messages=[
                 dict(
                     role="system",
@@ -110,7 +122,7 @@ class Classifier(BaseClassifier):
 
         # Send prompt to ChatGPT
         response = self.create_chat_completion(
-            model="gpt-4-0125-preview",
+            model=self.model,
             messages=[
                 dict(
                     role="system",

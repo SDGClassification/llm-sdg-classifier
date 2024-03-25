@@ -31,9 +31,9 @@ Topic IDs:
 
 ## Parameters
 
-No parameters used.
 
 
+- `model`: ChatGPT model to use
 
 
 ## Evaluation
@@ -43,20 +43,36 @@ The table below shows the accuracy (in %) for all configurations.
 |   Configuration |   All |   SDG 7 |   SDG 10 |
 |-----------------|-------|---------|----------|
 |               1 | 77.64 |      93 |    52.46 |
+|               2 | 77.64 |      93 |    52.46 |
 
 
-## Configuration 1 (`99914b9`)
+## Configuration 1 (`1875bee`)
 
 **Parameters**:
- None
 
-
+- `model`: gpt-4-0125-preview
 
 
 | SDG   |   n |   Accuracy (%) |   Precision (%) |   Recall (%) |   F1 Score |   TP |   FP |   TN |   FN |
 |-------|-----|----------------|-----------------|--------------|------------|------|------|------|------|
 | All   | 161 |          77.64 |           92.16 |        59.49 |       0.72 |   47 |    4 |   78 |   32 |
 | 7     | 100 |          93    |           92.16 |        94    |       0.93 |   47 |    4 |   46 |    3 |
+| 10    |  61 |          52.46 |            0    |         0    |       0    |    0 |    0 |   32 |   29 |
+
+**Evaluated on**: March 25, 2024
+
+
+## Configuration 2 (`6326b32`)
+
+**Parameters**:
+
+- `model`: gpt-3.5-turbo-0125
+
+
+| SDG   |   n |   Accuracy (%) |   Precision (%) |   Recall (%) |   F1 Score |   TP |   FP |   TN |   FN |
+|-------|-----|----------------|-----------------|--------------|------------|------|------|------|------|
+| All   | 161 |          77.64 |           87.72 |        63.29 |       0.74 |   50 |    7 |   75 |   29 |
+| 7     | 100 |          93    |           87.72 |       100    |       0.93 |   50 |    7 |   43 |    0 |
 | 10    |  61 |          52.46 |            0    |         0    |       0    |    0 |    0 |   32 |   29 |
 
 **Evaluated on**: March 25, 2024
