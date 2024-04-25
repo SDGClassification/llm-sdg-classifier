@@ -50,6 +50,7 @@ other configurations.
 
 | Classifier                                            |   All |   SDG 7 |   SDG 10 |
 |:------------------------------------------------------|------:|--------:|---------:|
+| [chatgpt_meike](classifiers/chatgpt_meike/)           | 92.55 |      93 |    91.8  |
 | [chatgpt_sdgs](classifiers/chatgpt_sdgs/)             | 91.3  |      90 |    93.44 |
 | [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/) | 77.64 |      93 |    52.46 |
 
