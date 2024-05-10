@@ -48,11 +48,10 @@ other configurations.
 
 <!-- evaluation table begin -->
 
-| Classifier                                            |   All |   SDG 7 |   SDG 10 |
-|:------------------------------------------------------|------:|--------:|---------:|
-| [chatgpt_meike](classifiers/chatgpt_meike/)           | 92.55 |      93 |    91.8  |
-| [chatgpt_sdgs](classifiers/chatgpt_sdgs/)             | 91.3  |      90 |    93.44 |
-| [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/) | 77.64 |      93 |    52.46 |
+| Classifier                                            |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 10 |
+|:------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|
+| [chatgpt_sdgs](classifiers/chatgpt_sdgs/)             |      87.3 |    76.6 |    89.9 |    82.9 |    85.4 |    88.4 |    91.8 |      90 |     93.4 |
+| [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/) |      56.1 |    64.9 |    34.8 |    63.2 |    47.6 |    49.3 |    43.5 |      93 |     52.5 |
 
 <!-- evaluation table end -->
 

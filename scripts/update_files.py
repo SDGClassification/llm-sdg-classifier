@@ -37,18 +37,43 @@ def update_files(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> Non
     # Evaluate data across all runs
     evaluation = pd.DataFrame(
         index=[c.get_identifier() for c in configurations],
-        columns=["Configuration", "All", *[f"SDG {x}" for x in range(1, 18)]],
+        columns=["Configuration", "Average", *[f"SDG {x}" for x in range(1, 18)]],
     )
     evaluation["Configuration"] = range(1, len(configurations) + 1)
 
     # Fill in data from completed runs
     for run in [r for r in runs if r is not None]:
         id = run.config.get_identifier()
-        for stat in run.stats.to_list():
-            evaluation.at[id, stat.label] = stat.accuracy
+
+        # Only consider SDGs with at least one text
+        stats_df = run.stats[run.stats.n > 0]
+        for _, row in stats_df.iterrows():
+            label = row.sdg if row.sdg == "Average" else f"SDG {row.sdg}"
+            evaluation.at[id, label] = row.accuracy
+
+    # Re-order columns
+    evaluation = evaluation[
+        [
+            "Configuration",
+            "Average",
+            *[f"SDG {x}" for x in range(1, 18)],
+        ]
+    ]
 
     # Update stats.csv file
     evaluation.to_csv(classifier.directory.joinpath("stats.csv"), index=False)
+
+    # Cast columns to float types
+    evaluation = evaluation.astype(
+        dtype={
+            "Configuration": int,
+            "Average": float,
+            **{f"SDG {x}": float for x in range(1, 18)},
+        }
+    )
+
+    # Round stats to 1 decimal
+    evaluation = evaluation.round(1)
 
     # Drop empty columns
     evaluation = evaluation.dropna(how="all", axis=1)
@@ -84,7 +109,7 @@ def update_files(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> Non
     stats = []
     for dir in os.scandir("classifiers"):
         # Only consider directories
-        if not dir.is_dir:
+        if not dir.is_dir():
             continue
 
         # Skip folders that do not define a <classifier-name.py> file
@@ -94,11 +119,20 @@ def update_files(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> Non
         # Load stats
         stats_df = pd.read_csv(Path(dir.path, "stats.csv"))
 
+        # Check if stats are in new format (using averages)
+        if "Average" not in stats_df.columns:
+            print(
+                "Info: Updating README: Skipping",
+                dir.name,
+                "because stats are not yet in new format",
+            )
+            continue
+
         # Add name (as markdown link)
         stats_df["Classifier"] = f"[{dir.name}](classifiers/{dir.name}/)"
 
         # Keep highest accuracy only
-        stats_df = stats_df.sort_values(by=["All"], ascending=False)
+        stats_df = stats_df.sort_values(by=["Average"], ascending=False)
         stats_df = stats_df.drop(columns=["Configuration"])
 
         # Combine into dataframe
@@ -111,10 +145,22 @@ def update_files(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> Non
     overall_stats_df = overall_stats_df[
         [
             "Classifier",
-            "All",
+            "Average",
             *[f"SDG {x}" for x in range(1, 18)],
         ]
     ]
+
+    # Cast columns to float types
+    overall_stats_df = overall_stats_df.astype(
+        dtype={
+            "Classifier": str,
+            "Average": float,
+            **{f"SDG {x}": float for x in range(1, 18)},
+        }
+    )
+
+    # Round stats to 1 decimal
+    overall_stats_df = overall_stats_df.round(1)
 
     # Drop empty columns
     overall_stats_df = overall_stats_df.dropna(how="all", axis=1)

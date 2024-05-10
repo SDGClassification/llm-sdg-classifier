@@ -9,7 +9,7 @@ import argparse
 from datetime import datetime
 from babel.dates import format_date
 from classifiers import BaseClassifier, Run
-from lib.sdg_benchmark import SdgBenchmark
+from sdgclassification.benchmark import Benchmark
 from scripts.update_files import update_files
 
 
@@ -38,15 +38,15 @@ if args.config is None:
 classifier = Classifier(args.config)
 
 # Run benchmark
-benchmark = SdgBenchmark(predict_sdgs=classifier.classify)
+benchmark = Benchmark(predict_sdgs=classifier.classify)
 benchmark.run()
 
 # Store params, results and stats
 run = Run(
     config=classifier.configuration,
     date=format_date(datetime.today(), format="long", locale="en"),
-    stats=benchmark.stats,
-    results=benchmark.results,
+    stats=benchmark.stats.to_dataframe(),
+    results=benchmark.results.to_dataframe(),
 )
 run.write_files(classifier.runs_directory)
 

@@ -917,6 +917,22 @@ doc = ["jupytext", "matplotlib (>2)", "myst-nb", "numpydoc", "pooch", "pydata-sp
 test = ["asv", "gmpy2", "hypothesis", "mpmath", "pooch", "pytest", "pytest-cov", "pytest-timeout", "pytest-xdist", "scikit-umfpack", "threadpoolctl"]
 
 [[package]]
+name = "sdgclassification-benchmark"
+version = "0.9.0"
+description = "The SDG Classification Benchmark is an open and public resource for evaluating and comparing SDG classification models."
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "sdgclassification_benchmark-0.9.0-py3-none-any.whl", hash = "sha256:2c8f3d5480de3b186f00a73929697cc52b76c8d852b426fea44e1d211e12866f"},
+    {file = "sdgclassification_benchmark-0.9.0.tar.gz", hash = "sha256:b09247039f9f7b386d879e911d2379ca71c308d029e1beadd6938ef96c91fdee"},
+]
+
+[package.dependencies]
+pandas = ">=2.2.2,<3.0.0"
+progress = ">=1.6,<2.0"
+tabulate = ">=0.9.0,<0.10.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -1041,4 +1057,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "0372c6e31754962c18205948e66409fb4059a1368bbcb1fad73c1b1036152f16"
+content-hash = "e8cec32e841a938c8ef895aed36170c2f86c45e620a24e43d7ac14de5bd25aee"
