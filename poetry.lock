@@ -918,13 +918,13 @@ test = ["asv", "gmpy2", "hypothesis", "mpmath", "pooch", "pytest", "pytest-cov",
 
 [[package]]
 name = "sdgclassification-benchmark"
-version = "0.9.0"
+version = "0.10.0"
 description = "The SDG Classification Benchmark is an open and public resource for evaluating and comparing SDG classification models."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "sdgclassification_benchmark-0.9.0-py3-none-any.whl", hash = "sha256:2c8f3d5480de3b186f00a73929697cc52b76c8d852b426fea44e1d211e12866f"},
-    {file = "sdgclassification_benchmark-0.9.0.tar.gz", hash = "sha256:b09247039f9f7b386d879e911d2379ca71c308d029e1beadd6938ef96c91fdee"},
+    {file = "sdgclassification_benchmark-0.10.0-py3-none-any.whl", hash = "sha256:3f37b1cc11cb660fe55b234e66e26111113002bd798606b5bf10daab4b38f3e4"},
+    {file = "sdgclassification_benchmark-0.10.0.tar.gz", hash = "sha256:4babcc33a462e06a3be9aa9fefd7d2a0c872ba6c93bf7d98b95fed9db039f40d"},
 ]
 
 [package.dependencies]
@@ -1057,4 +1057,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "e8cec32e841a938c8ef895aed36170c2f86c45e620a24e43d7ac14de5bd25aee"
+content-hash = "b9bb4b6024c53993bc9ab29074729ec586fdacd206046cc5fb89bad03a2008a1"
