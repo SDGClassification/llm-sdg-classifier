@@ -13,6 +13,7 @@ Development Goal using recent Large Language Models, such as ChatGPT and Llama2.
   - [Adding configurations](#adding-configurations)
   - [Caching requests](#caching-requests)
   - [Running an LLM classifier](#running-an-llm-classifier)
+    - [Benchmarking against specific SDGs](#benchmarking-against-specific-sdgs)
 
 ## Motivation
 
@@ -235,3 +236,14 @@ Benchmark completed
 After the evaluation is complete, you can review the new/updated README.md file
 that has been generated in the folder of the classifier. Example:
 [classifiers/chatgpt_sdgs/README.md](classifiers/chatgpt_sdgs/README.md)
+
+#### Benchmarking against specific SDGs
+
+When passing the `--sdg X Y Z` argument to the `evaluate.py` script, the
+benchmark will be limited to the selected SDGs.
+
+For example:
+
+`python scripts/evaluate.py myclassifier --sdg 1 2 3 4 5`
+
+This would only run the benchmark for SDGs 1 - 5.

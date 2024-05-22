@@ -19,6 +19,12 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("classifier", type=str)
 parser.add_argument("--config", type=int)
+parser.add_argument(
+    "--sdg",
+    type=int,
+    nargs="*",
+    help="select the SDGs to benchmark against (defaults to all)",
+)
 args = parser.parse_args()
 
 Classifier = BaseClassifier.load(args.classifier)
@@ -37,8 +43,14 @@ if args.config is None:
 # Instantiate classifier
 classifier = Classifier(args.config)
 
+# Determine kwargs
+kwargs = dict()
+
+if len(args.sdg):
+    kwargs["sdgs"] = args.sdg
+
 # Run benchmark
-benchmark = Benchmark(predict_sdgs=classifier.classify)
+benchmark = Benchmark(predict_sdgs=classifier.classify, **kwargs)
 benchmark.run()
 
 # Store params, results and stats
