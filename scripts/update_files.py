@@ -116,6 +116,10 @@ def update_files(classifier: Union[BaseClassifier, Type[BaseClassifier]]) -> Non
         if not Path(dir.path, dir.name + ".py").exists():
             continue
 
+        # Skip folders that do not have a stats.csv file
+        if not Path(dir.path, "stats.csv").exists():
+            continue
+
         # Load stats
         stats_df = pd.read_csv(Path(dir.path, "stats.csv"))
 
