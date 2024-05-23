@@ -52,3 +52,14 @@ class Classifier(BaseClassifier):
         # Get SDGs from message
         data = json.loads(message)
         return data["sdgs"]
+
+
+# Example code for directly running without going through evaluate script
+# Note that this does not update the READMEs
+if __name__ == "__main__":
+    from sdgclassification.benchmark import Benchmark
+
+    classifier = Classifier(config=1)
+    benchmark = Benchmark(classifier.classify, sdgs=[10])
+
+    benchmark.run()
