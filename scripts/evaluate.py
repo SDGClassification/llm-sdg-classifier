@@ -46,7 +46,7 @@ classifier = Classifier(args.config)
 # Determine kwargs
 kwargs = dict()
 
-if len(args.sdg):
+if args.sdg is not None:
     kwargs["sdgs"] = args.sdg
 
 # Run benchmark
