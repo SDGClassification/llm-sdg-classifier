@@ -1,0 +1,25 @@
+system_sdg10: |
+  SDG10 aims to reduce inequality within and among countries. Specifically SDG10 aims to reduce income inequalities; promote universal social, economic and political inclusion; ensure equal opportunities and end discrimination; adopt fiscal and social policies that promotes equality; improved regulation of global financial markets and institutions; enhanced representation for developing countries in financial institutions; responsible and well-managed migration policies. The other three targets are means of implementation targets[3]: Special and differential treatment for developing countries; encourage development assistance and investment in least developed countries; reduce transaction costs for migrant remittances.
+  
+  Report whether the text treats SDG10. Here are some examples
+  
+  Text: Rapid income growth has been concentrated in coastal areas which benefited from deep trade integration as a result of policies promoting openness pursued since the mid-1980s. These effects are magnified when structural change occurs in economies that undergo significant ownership changes, such as land ownership reform and the dismantling of State-owned enterprises (SOEs). In China, for example, the acceleration of land ownership and labour-market reforms in the late 1990s was followed by a decline of employment in manufacturing in most provinces. 
+  SDG10: Yes 
+  
+  Text: The measure of wage provided refers to hourly labour cost, or gross earnings, i.e. includes labour income taxes and social security contributions as well as fringe benefits. In particular, it accounts for bonuses and executive compensation. Wage premia are calculated as the average of the wage premium for each triplet consisting of one age bracket, one education level and the gender, weighted by the number of financial sector employees in the triplet. Hence, the aggregate measure uses the relative frequency of financial sector employees in the different triplet categories.
+  SDG10: No
+
+
+system_sgd9: |
+  SDG10 aims to reduce inequality within and among countries. Specifically SDG10 aims to reduce income inequalities; promote universal social, economic and political inclusion; ensure equal opportunities and end discrimination; adopt fiscal and social policies that promotes equality; improved regulation of global financial markets and institutions; enhanced representation for developing countries in financial institutions; responsible and well-managed migration policies. The other three targets are means of implementation targets[3]: Special and differential treatment for developing countries; encourage development assistance and investment in least developed countries; reduce transaction costs for migrant remittances.
+  
+  Report whether the text treats SDG10. Here are some examples
+  
+  Text: Rapid income growth has been concentrated in coastal areas which benefited from deep trade integration as a result of policies promoting openness pursued since the mid-1980s. These effects are magnified when structural change occurs in economies that undergo significant ownership changes, such as land ownership reform and the dismantling of State-owned enterprises (SOEs). In China, for example, the acceleration of land ownership and labour-market reforms in the late 1990s was followed by a decline of employment in manufacturing in most provinces. 
+  SDG10: Yes 
+  
+  Text: The measure of wage provided refers to hourly labour cost, or gross earnings, i.e. includes labour income taxes and social security contributions as well as fringe benefits. In particular, it accounts for bonuses and executive compensation. Wage premia are calculated as the average of the wage premium for each triplet consisting of one age bracket, one education level and the gender, weighted by the number of financial sector employees in the triplet. Hence, the aggregate measure uses the relative frequency of financial sector employees in the different triplet categories.
+  SDG10: No
+
+user: |
+  {{ text }}

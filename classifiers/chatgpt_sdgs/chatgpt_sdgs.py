@@ -18,6 +18,7 @@ class Classifier(BaseClassifier):
         Parameters(model="ChatGPT model to use"),
         Config(model="gpt-4-0125-preview"),
         Config(model="gpt-3.5-turbo-0125"),
+        Config(model="gpt-4o-mini"),
     )
 
     # ChatGPT model to use
@@ -59,7 +60,7 @@ class Classifier(BaseClassifier):
 if __name__ == "__main__":
     from sdgclassification.benchmark import Benchmark
 
-    classifier = Classifier(config=1)
+    classifier = Classifier(config=3)
     benchmark = Benchmark(classifier.classify, sdgs=[10])
 
     benchmark.run()
