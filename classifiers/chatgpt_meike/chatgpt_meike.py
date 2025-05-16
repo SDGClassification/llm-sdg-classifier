@@ -39,10 +39,10 @@ class Classifier(BaseClassifier):
             # response_format={"type": "json_object"},
             temperature=0,
         )
-        # message = response.choices[0].message.content
+        message = completion.choices[0].message.content
         sdgs = re.findall(r'\d+', completion.choices[0].message.content)
 
-        return [int(sdg) for sdg in sdgs]
+        return [int(sdg) for sdg in sdgs if sdg != 0]
 
 # inspection, will not be saved in readme, but in cache
 if __name__ == "__main__":
