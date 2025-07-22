@@ -1,6 +1,0 @@
-check
-pyenv --version
-
-start
-.venv\Scripts\Activate.ps1
-poetry run python scripts/evaluate.py chatgpt_sdgs

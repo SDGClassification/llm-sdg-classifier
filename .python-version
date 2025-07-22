@@ -1,1 +1,7 @@
 3.12
+import os
+import sys
+
+# Get the real path of the Python interpreter
+interpreter_path = os.path.realpath(sys.executable)
+print(interpreter_path)

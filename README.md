@@ -49,11 +49,14 @@ other configurations.
 
 <!-- evaluation table begin -->
 
-| Classifier                                            |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 10 |
-|:------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|
-| [chatgpt_meike](classifiers/chatgpt_meike/)           |      91.8 |   nan   |   nan   |   nan   |   nan   |   nan   |   nan   |     nan |     91.8 |
-| [chatgpt_sdgs](classifiers/chatgpt_sdgs/)             |      87.3 |    76.6 |    89.9 |    82.9 |    85.4 |    88.4 |    91.8 |      90 |     93.4 |
-| [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/) |      56.1 |    64.9 |    34.8 |    63.2 |    47.6 |    49.3 |    43.5 |      93 |     52.5 |
+| Classifier                                                          |   Average |   SDG 1 |   SDG 2 |   SDG 3 |   SDG 4 |   SDG 5 |   SDG 6 |   SDG 7 |   SDG 8 |   SDG 9 |   SDG 10 |   SDG 11 |   SDG 12 |   SDG 13 |   SDG 14 |   SDG 15 |   SDG 16 |   SDG 17 |
+|:--------------------------------------------------------------------|----------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+| [chatgpt_meike](classifiers/chatgpt_meike/)                         |      91.8 |   nan   |   nan   |   nan   |   nan   |   nan   |   nan   |     nan |   nan   |   nan   |     91.8 |      nan |    nan   |    nan   |    nan   |    nan   |    nan   |    nan   |
+| [chatgpt_meike_old](classifiers/chatgpt_meike_old/)                 |      89.7 |    87   |    91.3 |    96.1 |    92.7 |    94.2 |    91.8 |      96 |    81.1 |    89.5 |     90.2 |       87 |     90   |     93.8 |     88.1 |     94.4 |     80.9 |     81.2 |
+| [chatgpt_meike_updated](classifiers/chatgpt_meike_updated/)         |      91.8 |   nan   |   nan   |   nan   |   nan   |   nan   |   nan   |     nan |   nan   |   nan   |     91.8 |      nan |    nan   |    nan   |    nan   |    nan   |    nan   |    nan   |
+| [chatgpt_meike_updated_all](classifiers/chatgpt_meike_updated_all/) |      88.7 |    88.3 |    88.4 |    96.1 |    90.2 |    92.8 |    94.1 |      97 |    78.4 |    84.2 |     90.2 |       87 |     88.8 |     95.4 |     86.9 |     93   |     86.8 |     70.3 |
+| [chatgpt_sdgs](classifiers/chatgpt_sdgs/)                           |      87.3 |    76.6 |    89.9 |    82.9 |    85.4 |    88.4 |    91.8 |      90 |   nan   |   nan   |     93.4 |      nan |    nan   |    nan   |    nan   |    nan   |    nan   |    nan   |
+| [chatgpt_topics_hmc](classifiers/chatgpt_topics_hmc/)               |      56.1 |    64.9 |    34.8 |    63.2 |    47.6 |    49.3 |    43.5 |      93 |   nan   |   nan   |     52.5 |      nan |    nan   |    nan   |    nan   |    nan   |    nan   |    nan   |
 
 <!-- evaluation table end -->
 

@@ -1,0 +1,77 @@
+## old
+#system: |
+#  If text reflects the SDG description below, report maximally two relevant SDGs in bullet points (0 if none).
+#  SDG 1: End poverty in all its forms everywhere
+#  SDG 2: End hunger, achieve food security and improved nutrition and promote sustainable agriculture
+#  SDG 3: Ensure healthy lives and promote well-being for all at all ages
+#  SDG 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+#  SDG 5: Achieve gender equality and empower all women and girls
+#  SDG 6: Ensure availability and sustainable management of water and sanitation for all
+#  SDG 7: Ensure access to affordable, reliable, sustainable and modern energy for all
+#  SDG 8: Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all
+#  SDG 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation
+#  SDG 10: Reduce inequality within and among countries
+#  SDG 11: Make cities and human settlements inclusive, safe, resilient and sustainable
+#  SDG 12: Ensure sustainable consumption and production patterns
+#  SDG 13: Take urgent action to combat climate change and its impacts
+#  SDG 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable development
+#  SDG 15: Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, halt and reverse land degradation, and halt biodiversity loss
+#  SDG 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels
+#  SDG 17: Strengthen the means of implementation and revitalize the global partnership for sustainable development
+#
+#user: |
+#  {{ text }}
+
+## updated: october 2024
+# system: |
+#   Report maximally two SDGs that are relevant to the text. See below for SDG descriptions.
+#   Use JSON format. If you detect no SDGs, report 0. For example: {'sdgs':[0]}.
+#   SDG 1: End poverty in all its forms everywhere
+#   SDG 2: End hunger, achieve food security and improved nutrition and promote sustainable agriculture
+#   SDG 3: Ensure healthy lives and promote well-being for all at all ages
+#   SDG 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+#   SDG 5: Achieve gender equality and empower all women and girls
+#   SDG 6: Ensure availability and sustainable management of water and sanitation for all
+#   SDG 7: Ensure access to affordable, reliable, sustainable and modern energy for all
+#   SDG 8: Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all
+#   SDG 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation
+#   SDG 10: Reduce inequality within and among countries
+#   SDG 11: Make cities and human settlements inclusive, safe, resilient and sustainable
+#   SDG 12: Ensure sustainable consumption and production patterns
+#   SDG 13: Take urgent action to combat climate change and its impacts
+#   SDG 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable development
+#   SDG 15: Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, halt and reverse land degradation, and halt biodiversity loss
+#   SDG 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels
+#   SDG 17: Strengthen the means of implementation and revitalize the global partnership for sustainable development
+# user: |
+#   {{ text }}
+
+
+# updated may 2025
+system: |
+  You are an intelligent multi-label classification system designed to map texts to their relevant Sustainable Development Goals.
+  
+  Return SDGs that are relevant to the text. See below for SDG descriptions. If you detect no SDGs, report 0. Return JSON format: {'sdgs':[0]}.
+  
+  SDG 1: End poverty in all its forms everywhere
+  SDG 2: End hunger, achieve food security and improved nutrition and promote sustainable agriculture
+  SDG 3: Ensure healthy lives and promote well-being for all at all ages
+  SDG 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all
+  SDG 5: Achieve gender equality and empower all women and girls
+  SDG 6: Ensure availability and sustainable management of water and sanitation for all
+  SDG 7: Ensure access to affordable, reliable, sustainable and modern energy for all
+  SDG 8: Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all
+  SDG 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation
+  SDG 10: Reduce inequality within and among countries
+  SDG 11: Make cities and human settlements inclusive, safe, resilient and sustainable
+  SDG 12: Ensure sustainable consumption and production patterns
+  SDG 13: Take urgent action to combat climate change and its impacts
+  SDG 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable development
+  SDG 15: Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, halt and reverse land degradation, and halt biodiversity loss
+  SDG 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels
+  SDG 17: Strengthen the means of implementation and revitalize the global partnership for sustainable development
+
+user: |
+  Classify the following text in terms of its relevance to the Sustainable Development Goals:
+
+  """{{ text }}"""
